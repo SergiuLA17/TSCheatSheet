@@ -23,349 +23,169 @@
 <div id="rendered-js">
     <a class="btn-flip" data-back="Back" data-front="Back" href="../index.html"></a>
     <div class="accordionWrapper">
-<!--String-->
+        <!--Syntax-->
         <div class="accordionItem close">
-            <h2 class="accordionItemHeading ">String</h2>
+            <h2 class="accordionItemHeading ">Syntax</h2>
             <div class="accordionItemContent">
                 <pre class="codeStyle">
                     <code>
-// concatinarea caracterilor
-function easyLoop(){
-     let result = "";
+let apples: number;
+apples = 5;
 
-        for(let i = 0; i <= 100; i++){
-              if(i % 7 === 0){
-                 result += i;
-              }
-        }
+let speed: string = 'fast';
+let hasName: boolean = true;
 
-     return result;
+let nothingMuch: null = null;
+let nothing: undefined = undefined;
+
+// Built in objects
+let now: Date = new Date();
+
+// Array
+let colors: string[] = ['red', 'green', 'blue'];
+let myNumbers: number[] = [1, 2, 3];
+let truths: boolean[] = [true, false, true];
+
+// Classes
+class Car {
+
 }
+let car: Car = new Car();
+
+// Object literal
+let point: { x: number; y: number } = {
+    x: 10,
+    y: 20
+}
+
+// Function
+const logNumber: (i: number) => void = (i: number) => {
+    console.log(i);
+}
+
                   </code>
                 </pre>
 
-                <pre class="codeStyle"> <code>
-//concatiarea caracterilor
-//variant1
-function strangeWord(word) {
-   let res = "";
-
-    for (let i = 0; i < word.length; i++) {
-        if (i % 2 === 0) {
-            res += word[i]
-        }
-    }
-
-    return res;
-}
-//variant 2
-function strangeWord(word) {
-  let newWord = [];
-  for (let i=0; i<word.length;i+=2) {
-    newWord.push(word[i]);
-  }
-  return newWord.join("");
-}
-                  </code>
-                </pre>
-
-                <pre class="codeStyle">
+            </div>
+        </div>
+        <!--Type annotations-->
+        <div class="accordionItem close">
+            <h2 class="accordionItemHeading ">Type annotations</h2>
+            <div class="accordionItemContent">
+                <pre>
+Este o modalitate de a specifica tipul unei variabile, functii, clase, etc. Folosim atunci cand dorim sa clarificam ce tip de variabila se va returna.
+Exemplu de cazuri unde trebuie de folosit pentru variabile:
                     <code>
-//metoda replace, care inlocuieste
-//un caracter sau
-//un sir de caractere cu altul
-function http2https(url) {
-    return url.replace("http", "https");
-}
-      </code>
-</pre>
-<pre class="codeStyle">
-      <code>
-//metoda replace, care inlocuieste un cuvant cu altul
-function bugFix(string) {
-  return string.replace("bug", "flower");
-}
-       </code>
-</pre>
-                <pre class="codeStyle">
-      <code>
-//metoda replace, care inlocuieste un cuvant cu toate cuvintele existente
-function bugFixFinal(string) {
-2
-  return string.replaceAll("bug", "flower");
-3
-}
-       </code>
-</pre>
-                <pre class="codeStyle">
-      <code>
-//functia daca un string este palindrom sau nu
-//varianta 1
-function theGround(obj) {
-  return obj.category.length > obj.name.length ? obj.category : obj.name
-}
-//varianta 2
-function theGround(obj) {
-    if (obj.name.length === obj.category.length) {
-        return obj.name;
-    } else if (obj.name.length > obj.category.length) {
-        return obj.name;
-    } else
-        return obj.category;
-}
+/*
+1)Cand tipul de returnare este any.
+Adica typescript nu stie ce fel de tip se returneaza si in acest cat ts nu ne poate ajuta sa identificam erorile.
+*/
+const json1 = '{"x": 10, "y": 20}';
+const obj1  = JSON.parse(json);
+//in cazul dat ts nu stie despre tipul de date, si in caz cand vrem sa lucram cu variabila, nu o sa se poata
+//sa ne reprezinte metodele specifice tipului de date.
 
-console.log(theGround({name: "John", category: "John"}));
-//return John, deoarece sunt egale, dar in caz ca sunt egale se returneaza numele
-       </code>
-</pre>
-                <pre class="codeStyle">
-      <code>
-//aces cod inverseaza toate caracterile dintr-un string
-function reverseLetters(chars) {
+//Astfel se adauga tipul de date, si astfel TS va intelege cu ce tip de date lucram.
 
-  return chars.reverse();
+const json = '{"x": 10, "y": 20}';
+const obj: number = JSON.parse(json);
+const coords: { x: number; y: number } = JSON.parse(json);
 
-}
-       </code>
-</pre>
-            </div>
-        </div>
-<!--Arrays-->
-        <div class="accordionItem close">
-            <h2 class="accordionItemHeading">Arrays</h2>
-            <div class="accordionItemContent">
+/* 2)Atunci cand declaram o variabila pe o linie si o initializam pe alta linie. */
+let words = ['red', 'green', 'blue'];
+let foundWord: boolean;
 
-<pre class="codeStyle">
-    <code>
-//functia data returneaza numarul de elemente impare din array
-//variant 1
-function countOdds(numbers) {
-    let count = 0;
-    for (let i = 0; i < numbers.length; i++) {
-        if (numbers[i] % 2 !== 0) {
-            count++;
-        }
+for (let i = 0; i < words.length; i++) {
+    if(words[i] === 'green') {
+        foundWord = true;
     }
-    return count;
 }
+/* 3)Variabila care are un tip de date, dar ulterior primeste aslt tip de date. */
+let numberAboveZero = false;
 
-//variant 2
-function countOdds(numbers) {
-
-  return numbers.filter(num=>num%2!==0).length;
-}
-
-//variant 3
-function countOdds(numbers) {
-  var count = 0;
-  numbers.forEach(elem => {
-    if (elem % 2 != 0) {
-      count++;
+for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] > 0) {
+        numberAboveZero = numbers[i];
     }
-  })
-  return count;
 }
+//In cazul dat, in consola va aparea eroare, deoarece numberAboveZero este de tipul boolean, iar noi dorim
+//sa-i atribuim un numar. In JS asa cod va lucra, dar in TS nu, si astfel trebuie sa specificam tipul de date
+let numbers = [-10, -1, 12];
+let numberAboveZero: boolean | number = false;
 
-console.log(countOdds([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
-//retrun 5
-      </code>
-</pre>
-                <pre class="codeStyle">
-    <code>
-//adaugarea elemenetelor in array la inceput
-function goldenMiddle(a, b) {
-    let res = [];
-
-    res.push(a[1])
-    res.push(b[1])
-    return res;
-}
-console.log(goldenMiddle([1, 2, 3], [4, 5, 6]));
-//retrun [2,5]
-       </code>
-</pre>
-<pre class="codeStyle">
-      <code>
-//metoda reverse care inverseaza elementele din array
-function reverseLetters(chars) {
-
-  return chars.reverse();
-}
-console.log(reverseLetters(['a', 'b', 'c']));
-//return  ['c', 'b', 'a'];
-       </code>
-</pre>
-<pre class="codeStyle">
-      <code>
-//functia data returneaza un string care schimba fiecare al doilea caracter dintr-un string cu caracterul '_'tcnm r
-function hangman(hangmanString) {
-  return [...hangmanString].map((l,i) => i % 2 ? l : '_').join('');
-}
-       </code>
-</pre>
-
-            </div>
-        </div>
-<!--Expresii matematice-->
-        <div class="accordionItem close">
-            <h2 class="accordionItemHeading">Expresii matematice</h2>
-            <div class="accordionItemContent">
-<pre class="codeStyle">
-    <code>
-//functia care returneaza diferenta dintre un numar si 42
-function difference42(n) {
-return Math.abs(n - 42);
-//Math este clasa care contine metode pentru operatii matematice,
-//abs este metoda care returneaza valoarea absoluta a unui numar, adica fara semn
-}
-console.log(difference42(52));
-//retrun 10
-      </code>
-</pre>
-            </div>
-        </div>
-<!--Object-->
-        <div class="accordionItem close">
-            <h2 class="accordionItemHeading">Object</h2>
-            <div class="accordionItemContent">
-<pre class="codeStyle">
-    <code>
-//in functia data se creaza un obiect car si se returneaza
-function buildingACar() {
-  const car  = {
-    wheels : 4,
-    power : 100,
-    doors : 3,
-}
-  return car;
-
-}
-      </code>
-</pre>
-            </div>
-        </div>
-<!--Binary logical operators-->
-        <div class="accordionItem close">
-            <h2 class="accordionItemHeading">Binary logical operators </h2>
-            <div class="accordionItemContent">
-<pre class="codeStyle">
-    <code>
-//in functia true daca unul dintre parametrii este 42 sau daca suma lor este 42
-function is42(a, b) {
-  return a === 42 || b === 42 || a + b === 42
-
-}
-      </code>
-</pre>
-            </div>
-        </div>
-<!--Loops-->
-        <div class="accordionItem close">
-            <h2 class="accordionItemHeading">Loops </h2>
-            <div class="accordionItemContent">
-<pre class="codeStyle">gfr
-    <code>
-//functia daca numara cati 0 si 4 sunt in array si returneaza true daca sunt mai multi 4 decat 0
-//varianta 1
-function more4than0(n) {
-    let countZero = 0;
-    let countFour = 0;
-    for(let i = 0; i < n.length; i++){
-        if(n[i] === 0){
-            countZero++;
-        }else if (n[i] === 4){
-            countFour++;
-        }
+for (let i = 0; i < numbers.length; i++) {
+    if (numbers[i] > 0) {
+        numberAboveZero = numbers[i];
     }
-
-    return countFour > countZero;
 }
-//varianta 2
-function more4than0(n) {
-  const fours = n.filter(num => num === 4).length;
-  const zeros = n.filter(num => num === 0).length;
-  return fours > zeros;
-}
+                </code></pre>
+Pentru Functii
+                <pre><code>
 
-      </code>
-</pre>
-            </div>
-        </div>
-<!--Formats-->
-        <div class="accordionItem close">
-            <h2 class="accordionItemHeading">Formats </h2>
-            <div class="accordionItemContent">
-<pre class="codeStyle">
-    <code>
-//functia data returneaza obiectul in format JSON
-function object2JSON(obj) {
-    return JSON.stringify(obj);
-}
-      </code>
-</pre>
-                <pre class="codeStyle">
-    <code>
-//functia data converteaza numarul din binar in decimal
-//varianta 1
-function bin2dec(bin) {
-
-  let res = 0;
-    let power = bin.length - 1;
-    for (let i = 0; i < bin.length; i++) {
-        res += parseInt(bin[i]) * Math.pow(2, power);
-
-        power--;
-    }
-    return res;
-}
-//varianta 2
-function bin2dec(bin) {
-  return parseInt(bin, 2);
-}
-
-      </code>
-</pre>
-                <pre class="codeStyle">
-    <code>
-//functia data controleaza daca parola respecta regulile
-//varianta 1
- function checkPassword(password, password_repeat) {
-    if (password !== password_repeat) {
-
-        return false;
-    }
-    if (password.length < 8) {
-        return false;
-    }
-    if (!password.match(/\d/)) {
-        return false;
-    }
-    if (!password.match(/[A-Z]/)) {
-        return false;
-    }
-    if (!password.match(/[a-z]/)) {
-        return false;
-    }
-    if (!password.match(/[$&%§_-]/)) {
-        return false;
-
-    }
+ //in cazul dat in paranteza se scrie argumentii, iar alaturi tipul de date care se vor returna.
+ const add = (a: number, b: number): boolean => {
     return true;
 }
-//varianta 2
-function checkPassword(password, password_repeat) {
-  if (
-  	password === password_repeat &&
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[&\$%-_])(?=.{8,})/.test(password) &&
-    !/[#]/.test(password)
-  ) {
-    return true
-  }
-
-  return false
+//inca o syntaxa
+function divide(a: number, b: number): number {
+    return a / b;
 }
-      </code>
-</pre>
+//inca o syntaxa
+const multiply = function (a: number, b: number): number {
+    return a * b;
+}
+//se anoteaza cu void in caz ca nu returneaza nimic, dar de fapt putem returna undefined sau null
+const logger = (message: string): void => {
+    console.log(message);
+}
+//se anoteaza cu never in caz ca nu returneaza nimic si nu se poate ajunge la finalul functiei
+const throwError = (message: string): never => {
+    throw new Error(message);
+}
+                </code></pre>
+Pentru Obiecte
+                <pre><code>
+ 1)Destructuring
+ //syntax destructuring inseamnta ca vom extrage date si weather din obiectul forecast si vom crea 2 variabile date si weather si le vom anota cu tipul Date si string
+const forecast = {
+    date: new Date(),
+    weather: 'sunny'
+}
+const logWeather = ({date, weather}: { date: Date, weather: string }): void => {
+    console.log(date)
+    console.log(weather)
+}
+logWeather(forecast);
+
+2)Destructuring cu obiecte in obiecte
+const profile = {
+    name: 'alex',
+    age: 20,
+    coords: {
+        lat: 0,
+        lng: 15
+    },
+    setAge(age: number): void {
+        this.age = age;
+    }
+}
+//in cazul dat extragem din obiectul profile doar age si anotam variabila age cu tipul number
+const { age }: { age: number } = profile;
+//in cazul dat extragem din obiectul profile doar coords si anotam variabila coords cu tipul { lat: number; lng: number }
+const { coords: { lat, lng } }: { coords: { lat: number; lng: number } } = profile;
+
+console.log(age);
+console.log(lat);
+console.log(lng);
+                </code></pre>
+            </div>
+        </div>
+        <!--Type interface-->
+        <div class="accordionItem close">
+            <h2 class="accordionItemHeading ">Type interface</h2>
+            <div class="accordionItemContent">
+                Prin type interface typescriptul singur va afla tipul de date al unei variabile initializate.
+                Lucreaza numai atunci cand declararea si initializarea se face intr-o linie.
 
             </div>
         </div>
