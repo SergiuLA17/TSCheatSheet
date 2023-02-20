@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="../js/script.js" rel="stylesheet">
+    <link href="../js/button.js" rel="stylesheet">
+    <link href="../css/content.css" rel="stylesheet">
+    <link href="../css/button.css" rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/styles/default.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <title>Document</title>
+
+</head>
+<body>
+
+<div id="rendered-js">
+    <a class="btn-flip" data-back="Back" data-front="Back" href="../index.html"></a>
+    <div class="accordionWrapper">
+
+        <div class="accordionItem close">
+            <h2 class="accordionItemHeading ">Schimbarea HTML cu ajutorul JS</h2>
+            <div class="accordionItemContent">
+
+                <pre class="codeStyle">
+                    <code>
+// codul dat genereaza in body un h4 cu textul "Text"
+const htmlTag = document.createElement("h4");
+htmlTag.innerHTML = "Text";
+document.body.appendChild(htmlTag);
+                  </code>
+                </pre>
+                <pre class="codeStyle">
+                    <code>
+// codul dat schimba culoarea fundalului in albastru al elementului cu clasa "bg"
+//variant 1
+document.getElementsByClassName("bg")[0].style.backgroundColor = "blue";
+//variant 2
+document.querySelector('.bg').style.backgroundColor = 'blue'
+                  </code>
+                </pre>
+                <pre class="codeStyle">
+                    <code>
+// codul dat creaza elementul p si adauga classa si il adauga in body
+function welcomeToMyClass(className) {
+
+  const el = document.createElement('p')
+    el.classList.add(className)
+    el.innerText = className[0].toUpperCase() + className.slice(1)
+    document.body.appendChild(el)
+
+}
+                  </code>
+                </pre>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<script src="../js/script.js">
+
+
+</script>
+
+</body>
+</html>
