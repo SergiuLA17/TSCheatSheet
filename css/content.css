@@ -93,3 +93,23 @@ body {
   display: inline-block;
 
 }
+
+pre {
+  white-space: pre-wrap;
+  /* CSS 3 */
+  white-space: -moz-pre-wrap;
+  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;
+  /* Opera 4-6 */
+  white-space: -o-pre-wrap;
+  /* Opera 7 */
+  overflow: auto;
+  font-size: 14px;
+  position: relative;
+  color: #595959;
+  padding: 10px 10px 10px;
+  text-align: left;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.42857143;
+  background: white;
+}
