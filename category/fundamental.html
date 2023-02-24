@@ -23,12 +23,30 @@
 <div id="rendered-js">
     <a class="btn-flip" data-back="Back" data-front="Back" href="../index.html"></a>
     <div class="accordionWrapper">
+        <!--Parcel-->
+        <div class="accordionItem close">
+            <h2 class="accordionItemHeading ">Parcel</h2>
+            <div class="accordionItemContent">
+                <pre class="codeStyle">
+                    <code>
+// parcel este un bundler de module, care face mai usor procesul de dezvoltare a aplicatiilor web.
+// parcel are un server de dezvoltare integrat, care face refresh la pagina web la fiecare modificare a codului.
+// pentru a rula un server de dezvoltare, trebuie sa rulam comanda: parcel index.html
+// pentru a instala parcel, trebuie sa rulam comanda: npm install -g parcel-bundler
+
+                  </code>
+                </pre>
+
+            </div>
+        </div>
         <!--Syntax-->
         <div class="accordionItem close">
             <h2 class="accordionItemHeading ">Syntax</h2>
             <div class="accordionItemContent">
                 <pre class="codeStyle">
                     <code>
+//varaibilele in typescript se declara cu let sau const, nu cu var, deoarece var este globala si poate fi folosita oriunde in cod.
+//dar let si const sunt locale si pot fi folosite doar in functia in care au fost declarate.
 let apples: number;
 apples = 5;
 
@@ -68,7 +86,7 @@ const logNumber: (i: number) => void = (i: number) => {
 
             </div>
         </div>
-        <!--Type annotations-->
+        <!--TypeAnnotations-->
         <div class="accordionItem close">
             <h2 class="accordionItemHeading ">Type annotations</h2>
             <div class="accordionItemContent">
@@ -180,9 +198,96 @@ console.log(lng);
                 </code></pre>
             </div>
         </div>
-        <!--Type interface-->
+        <!--TypeInterface-->
         <div class="accordionItem close">
             <h2 class="accordionItemHeading ">Type interface</h2>
+            <div class="accordionItemContent">
+                Prin type interface typescriptul singur va afla tipul de date al unei variabile initializate.
+                Lucreaza numai atunci cand declararea si initializarea se face intr-o linie.
+
+            </div>
+        </div>
+        <!--Interfaces-->
+        <div class="accordionItem close">
+            <h2 class="accordionItemHeading ">Interfaces</h2>
+            <div class="accordionItemContent">
+                <pre class="codeStyle"><code>
+//in codul de mai jos, am folosit o functie care primeste ca parametru un obiect, dar argumentele sunt destul de multe
+// si in cazul dat putem crea mai bine o interfata
+const printVehicle = (vehicle: { name: string; year: number; broken: boolean }): void => {
+    console.log(`Name: ${vehicle.name}`);
+    console.log(`Year: ${vehicle.year}`);
+    console.log(`Broken: ${vehicle.broken}`);
+}
+
+printVehicle(oldCivic);
+
+interface Vehicle {
+    name: string;
+    year: number;
+    broken: boolean
+}
+
+//dupa aceasta doar introducem dupa parametrul vehicle, interfata Vehicle
+const printVehicleFix = (vehicle: Vehicle): void => {
+    console.log(`Name: ${vehicle.name}`);
+    console.log(`Year: ${vehicle.year}`);
+    console.log(`Broken: ${vehicle.broken}`);
+}
+
+//in general interfata creaza un nou tip, care poate fi folosit in orice parte a codului
+                    </code></pre>
+<pre class="codeStyle"><code>
+//codul de mai jos reprezinta un cod mai general avem o interfata care raporteaza un obiect si avem o functie care primeste
+// ca parametru un obiect care implementeaza interfata Reportable
+interface Reportable {
+    summary(): string;
+}
+const oldCivic = {
+    name: 'civic',
+    year: 2000,
+    broken: true,
+    summary(): string {
+        return `Name: ${this.name}, Year: ${this.year}, Broken: ${this.broken}`;
+    }
+}
+const printSummary = (item: Reportable): void => {
+    console.log(item.summary());
+}
+
+printSummary(oldCivic);
+                </code></pre>
+            </div>
+        </div>
+        <!--Export-->
+        <div class="accordionItem close">
+            <h2 class="accordionItemHeading ">Export</h2>
+            <div class="accordionItemContent">
+                <pre class="codeStyle"><code>
+//cuvantul "export" permite sa folosim o functie sau o clasa in alt fisier
+//sintaxa pentru import este
+import { functia } from './fisierul'
+//dacaavem mai multe functii sau obiecte cu export, le vom importa in felul urmator, denumirile se adauga in acolade
+import { functia, functia2 } from './fisierul'
+//daca avem export defoult, atunci importul se face
+import functia from './fisierul'
+
+exemplu
+in fisieul1.ts declaram
+
+export default 'red';
+
+apoi vrem sa importam in fisierul2.ts
+
+import culoare from './fisierul1'
+console.log(culoare); // se va afisa red
+                                    </code></pre>
+
+            </div>
+        </div>
+        <!--Template-->
+        <div class="accordionItem close">
+            <h2 class="accordionItemHeading ">Arrays</h2>
             <div class="accordionItemContent">
                 Prin type interface typescriptul singur va afla tipul de date al unei variabile initializate.
                 Lucreaza numai atunci cand declararea si initializarea se face intr-o linie.

@@ -1,0 +1,3 @@
+//to compile ts files compile command is tsc filename.ts
+//to watch ts files compile command is tsc filename.ts -w
+

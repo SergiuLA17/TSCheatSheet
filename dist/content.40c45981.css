@@ -1,0 +1,121 @@
+body {
+  background: -webkit-linear-gradient(left, #888d8d, #b5c8ca);
+  background: linear-gradient(to right, #4e5353, #b5c8ca);
+}
+.accordionWrapper {
+  padding: 30px;
+  background: #fff;
+  float: left;
+  width: 80%;
+  box-sizing: border-box;
+  margin: 10%;
+  border-radius: 22px ;
+  box-shadow: 0 1.5em 85px 0 rgba(185, 171, 171, 0.2);
+}
+.accordionItem {
+  float: left;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: 'Open-sans', Arial, sans-serif;
+}
+.accordionItemHeading {
+  cursor: pointer;
+  margin: 0px 0px 10px 0px;
+  padding: 10px;
+  background: #49728c;
+  color: #fff;
+  width: 100%;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 20px;
+  box-sizing: border-box;
+}
+
+/* // отвечает за закрытие */
+.close .accordionItemContent { 
+  height: 0px;
+  transition: height 1s ease-out;
+  -webkit-transform: scaleY(0);
+  -o-transform: scaleY(0);
+  -ms-transform: scaleY(0);
+  transform: scaleY(0);
+  float: left;
+  display: block;
+}
+/* // отвечает за открытие */
+.open .accordionItemContent { 
+  padding: 23px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  width: 100%;
+  margin: 0px 0px 10px 0px;
+  display: block;
+  -webkit-transform: scaleY(1);
+  -o-transform: scaleY(1);
+  -ms-transform: scaleY(1);
+  transform: scaleY(1);
+  -webkit-transform-origin: top;
+  -o-transform-origin: top;
+  -ms-transform-origin: top;
+  transform-origin: top;
+
+  -webkit-transition: -webkit-transform 0.4s ease-out;
+  -o-transition: -o-transform 0.4s ease;
+  -ms-transition: -ms-transform 0.4s ease;
+  transition: transform 0.4s ease;
+  box-sizing: border-box;
+}
+
+.open .accordionItemHeading {
+  margin: 0;
+  
+   -webkit-border-top-left-radius: 3px; /* отвечает за  скругление углов */
+  -webkit-border-top-right-radius: 3px; /* отвечает за  скругление углов */
+  -moz-border-radius-topleft: 20px;  /* отвечает за  скругление углов */
+  -moz-border-radius-topright: 20px;
+  border-top-left-radius: 20px;  /* отвечает за  скругление углов */
+  border-top-right-radius: 20px;
+  -webkit-border-bottom-right-radius: 20px; /* отвечает за  скругление углов */
+  -webkit-border-bottom-left-radius: 20px; /* отвечает за  скругление углов */
+  -moz-border-radius-bottomright: 20px;
+  -moz-border-radius-bottomleft: 20px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px; 
+  background-color: #49728c; /* цвет фона */
+  color: #e8f0f1; /* цвет текста */
+}
+
+.codeStyle {
+  text-align: left;
+  display: inline-block;
+  padding: 3px;
+  background: #49728c;
+  margin: 0;
+
+}
+
+pre {
+  white-space: pre-wrap;
+  /* CSS 3 */
+  white-space: -moz-pre-wrap;
+  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;
+  /* Opera 4-6 */
+  white-space: -o-pre-wrap;
+  /* Opera 7 */
+  overflow: auto;
+  font-size: 14px;
+  position: relative;
+  color: #595959;
+  padding: 10px 10px 10px;
+  text-align: left;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.42857143;
+  background: white;
+}
+
+
+/*# sourceMappingURL=/content.40c45981.css.map */

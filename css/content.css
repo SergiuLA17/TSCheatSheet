@@ -70,7 +70,7 @@ body {
 }
 
 .open .accordionItemHeading {
-  margin: 0px;
+  margin: 0;
   
    -webkit-border-top-left-radius: 3px; /* отвечает за  скругление углов */
   -webkit-border-top-right-radius: 3px; /* отвечает за  скругление углов */
@@ -91,6 +91,9 @@ body {
 .codeStyle {
   text-align: left;
   display: inline-block;
+  padding: 3px;
+  background: #49728c;
+  margin: 0;
 
 }
 
